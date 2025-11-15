@@ -13,12 +13,14 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#1a237e',
-                        secondary: '#42a5f5',
-                        accent: '#ff9800',
-                        dark: '#f5f5f5',
-                        'dark-light': '#1e1e1e',
-                        'dark-lighter': '#2d2d2d'
+                        primary: '#0f172a', // 深邃海军蓝（主背景）
+                        secondary: '#3b82f6', // 明亮天蓝（主交互色）
+                        accent: '#f97316', // 活力橙（强调色）
+                        dark: '#030712', // 近黑深蓝（模块背景）
+                        'dark-light': '#1e293b', // 浅深蓝（卡片背景）
+                        'dark-lighter': '#334155', // 更浅深蓝（按钮默认态）
+                        'text-primary': '#f8fafc', // 亮白主文本
+                        'text-secondary': '#94a3b8', // 浅灰辅助文本
                     }
                 }
             }
@@ -31,11 +33,47 @@
         }
     </style>
     <style>
-        body { background-color: #f8f9fa; color: #333333; font-family: system-ui, sans-serif; }
-        .section-title::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 60px; height: 3px; background: linear-gradient(to right, #42a5f5, #ff9800); }
-        .copy-btn:hover { background-color: #42a5f5; color: white; }
-        .copy-btn.copied { background-color: #4caf50; color: white; }
-        .download-btn:hover { background-color: #3b82f6; transform: translateY(-2px); transition: all 0.3s ease; }
+        /* 基础样式调整 */
+        body { background-color: #030712; color: #f8fafc; font-family: system-ui, sans-serif; }
+        
+        /* 标题样式优化 */
+        .section-title { color: #ffffff !important; } /* 资源下载标题白色 */
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -8px; 
+            left: 0; 
+            width: 80px; 
+            height: 3px; 
+            background: linear-gradient(to right, #3b82f6, #f97316); 
+        }
+        
+        /* 模块标题白色 */
+        .module-title { color: #ffffff !important; }
+        
+        /* 复制按钮文字白色 */
+        .copy-btn { color: #ffffff !important; }
+        .copy-btn:hover { background-color: #3b82f6; color: white; }
+        .copy-btn.copied { background-color: #10b981; color: white; }
+        
+        /* 下载按钮优化 */
+        .download-btn { 
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            transition: all 0.3s ease;
+        }
+        .download-btn:nth-child(2) {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+        }
+        .download-btn:hover { 
+            background-color: #3b82f6; 
+            transform: translateY(-2px); 
+        }
+        
+        /* 输入框文字颜色 */
+        input { color: #f8fafc !important; }
+        
+        /* 辅助文本颜色 */
+        .text-gray-400 { color: #94a3b8 !important; }
     </style>
 </head>
 <body>
@@ -57,7 +95,7 @@
 
             <!-- 影视模块 -->
             <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-8 text-center">影视</h3>
+                <h3 class="text-2xl font-bold mb-8 text-center module-title">影视</h3>
                 <!-- 使用教程 -->
                 <div class="bg-dark-light p-6 rounded-xl mb-8">
                     <h4 class="text-lg font-bold mb-3 flex items-center"><i class="fa fa-info-circle text-secondary mr-2"></i>使用教程</h4>
@@ -74,10 +112,10 @@
                 </div>
                 <!-- 下载按钮 -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <a href="https://d.kstore.dev/download/12212/影视.apk" target="_blank" class="download-btn block bg-secondary text-white font-bold py-3 px-6 rounded-lg text-center">
+                    <a href="https://d.kstore.dev/download/12212/影视.apk" target="_blank" class="download-btn block text-white font-bold py-3 px-6 rounded-lg text-center">
                         <i class="fa fa-android mr-2"></i>手机版下载
                     </a>
-                    <a href="https://cns.xn--yhqu5zs87a.top/https://github.com/FongMi/Release/raw/fongmi/apk/release/leanback-armeabi_v7a.apk" target="_blank" class="download-btn block bg-accent text-white font-bold py-3 px-6 rounded-lg text-center">
+                    <a href="https://cns.xn--yhqu5zs87a.top/https://github.com/FongMi/Release/raw/fongmi/apk/release/leanback-armeabi_v7a.apk" target="_blank" class="download-btn block text-white font-bold py-3 px-6 rounded-lg text-center">
                         <i class="fa fa-television mr-2"></i>电视版下载
                     </a>
                 </div>
@@ -85,7 +123,7 @@
 
             <!-- 音乐模块 -->
             <div class="mb-16">
-                <h3 class="text-2xl font-bold mb-8 text-center">音乐</h3>
+                <h3 class="text-2xl font-bold mb-8 text-center module-title">音乐</h3>
                 <div class="bg-dark-light p-6 rounded-xl mb-8">
                     <h4 class="text-lg font-bold mb-3 flex items-center"><i class="fa fa-info-circle text-secondary mr-2"></i>使用教程</h4>
                     <p class="text-gray-400 mb-4">下载软件后，复制以下链接到「设置-插件管理-网络插件-使用配置接口」</p>
@@ -100,10 +138,10 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <a href="https://d.kstore.dev/download/12212/音乐.apk" target="_blank" class="download-btn block bg-secondary text-white font-bold py-3 px-6 rounded-lg text-center">
+                    <a href="https://d.kstore.dev/download/12212/音乐.apk" target="_blank" class="download-btn block text-white font-bold py-3 px-6 rounded-lg text-center">
                         <i class="fa fa-android mr-2"></i>手机版下载
                     </a>
-                    <a href="https://d.kstore.dev/download/12212/音乐电脑版.exe" target="_blank" class="download-btn block bg-accent text-white font-bold py-3 px-6 rounded-lg text-center">
+                    <a href="https://d.kstore.dev/download/12212/音乐电脑版.exe" target="_blank" class="download-btn block text-white font-bold py-3 px-6 rounded-lg text-center">
                         <i class="fa fa-desktop mr-2"></i>电脑版下载
                     </a>
                 </div>
@@ -111,7 +149,7 @@
 
             <!-- 阅读模块 -->
             <div>
-                <h3 class="text-2xl font-bold mb-8 text-center">阅读</h3>
+                <h3 class="text-2xl font-bold mb-8 text-center module-title">阅读</h3>
                 <div class="bg-dark-light p-6 rounded-xl mb-8">
                     <h4 class="text-lg font-bold mb-3 flex items-center"><i class="fa fa-info-circle text-secondary mr-2"></i>使用教程</h4>
                     <p class="text-gray-400 mb-4">下载软件后，复制以下链接到「设置-书源管理-网络导入-使用配置接口」</p>
@@ -126,7 +164,7 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-1 gap-6">
-                    <a href="https://d.kstore.dev/download/12212/阅读.apk" target="_blank" class="download-btn block bg-secondary text-white font-bold py-3 px-6 rounded-lg text-center">
+                    <a href="https://d.kstore.dev/download/12212/阅读.apk" target="_blank" class="download-btn block text-white font-bold py-3 px-6 rounded-lg text-center">
                         <i class="fa fa-android mr-2"></i>手机版下载
                     </a>
                 </div>
