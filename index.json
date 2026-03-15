@@ -1,5 +1,6 @@
 {
-  "name": "HXYS配置",
-  "type": "proxy",
-  "url": "https://hxys.ddns.net/o.png"
+  "version": 1,
+  "urls": [
+    "https://hxys.ddns.net/o.png"
+  ]
 }
