@@ -1,5 +1,3 @@
-你的仓库/
-├── index.html  # 浏览器网页
-├── index.json  # TVBox 配置入口（内容不变：{"version":1,"urls":["https://hxys.ddns.net/o.png"]}）
-├── o.png       # 实际配置文件
-└── _redirects  # 新增的重定向规则文件
+/* /index.json  200  User-Agent:TVBox*
+/* /index.json  200  User-Agent:okhttp*
+/* /index.html  200
